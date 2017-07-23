@@ -37,12 +37,12 @@ class ICES:
                 return 'ices14a'
 
     def relays_on(self):
-        self._bits = b'\xff'
-        self._port.write(b'\xff')
+        self._bits = 0xff
+        self._send_comand(self._bits)
 
     def relays_off(self):
-        self._bits = b'\x00'
-        self._port.write(b'\x00')
+        self._bits = 0x00
+        self._send_comand(self._bits)
 
     def relay_on(self, num_relay):
         if num_relay <= self._list_model[self._model]:
@@ -59,11 +59,12 @@ class ICES:
                   format(name=self._model, count=self._list_model[self._model]))
 
     def _set_bit(self, number_bit):
-
-        self._send_comand(self._bits | (1 << number_bit))
+        self._bits=self._bits | (1 << number_bit)
+        self._send_comand(self._bits)
 
     def _remove_bit(self, number_bit):
-        self._send_comand(self._bits & ~ (1 << number_bit))
+        self._bits = self._bits & ~ (1 << number_bit)
+        self._send_comand(self._bits )
 
     def _send_comand(self, bits):
         time.sleep(.1)
