@@ -59,10 +59,12 @@ class ICES:
                   format(name=self._model, count=self._list_model[self._model]))
 
     def _set_bit(self, number_bit):
+
         self._send_comand(self._bits | (1 << number_bit))
 
     def _remove_bit(self, number_bit):
         self._send_comand(self._bits & ~ (1 << number_bit))
 
     def _send_comand(self, bits):
+        time.sleep(.1)
         self._port.write(bytes([bits]))
