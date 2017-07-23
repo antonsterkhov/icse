@@ -54,6 +54,9 @@ class ICES:
     def relay_off(self, num_relay):
         if num_relay <= self._list_model[self._model]:
             self._remove_bit(bits=self._bits, number_bit=num_relay - 1)
+        else:
+            print ('Model relay board {name} max relay {count}'.
+                   format(name=self._model, count=self._list_model[self._model]))
 
     def _set_bit(self, bits, number_bit):
         bits = bits | (1 << number_bit)
