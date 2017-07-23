@@ -2,7 +2,6 @@ import serial
 import time
 
 
-
 class ICES:
     _is_port = False
     _model = ''
