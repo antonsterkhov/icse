@@ -1,6 +1,6 @@
-import icse
 import time
 
+from src import icse
 
 relays = icse.ICES('/dev/ttyUSB0')
 
