@@ -1,14 +1,18 @@
+import time
 from src import icse
 
 relays = icse.ICES('/dev/ttyUSB0')
 
 # The number of relays for control depends on the model of the board.
 
+time.sleep(1)
 
-relays.relay_on(1)
+while True:
 
-relays.relay_off(1)
+    for i in range(4):
+        relays.relay_on(i+1)
+        time.sleep(.5)
 
-relays.relays_on()
-
-relays.relays_off()
+    for i in range(4):
+        relays.relay_off(i+1)
+        time.sleep(.5)
