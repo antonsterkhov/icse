@@ -6,6 +6,13 @@ relays = icse.ICES('/dev/ttyUSB0')
 # The number of relays for control depends on the model of the board.
 #
 
+relays.relays_on()
+
+time.sleep(1)
+
+relays.relays_off()
+
+
 time.sleep(1)
 
 while True:
