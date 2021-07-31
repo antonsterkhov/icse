@@ -6,7 +6,7 @@ class ICES:
     _is_port = False
     _model = ''
     _bits = 0x00
-
+    #model board
     _list_model = {'ices12a': 4, 'ices13a': 2, 'ices14a': 8}
 
     def __init__(self, nameport):
